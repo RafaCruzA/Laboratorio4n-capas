@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Venta de producto</title>
+</head>
+<body style="background-color:#33ffff;">
+
+	<h1 style="font-family:verdana;">Ingresar Producto</h1>
+	<form th:action="@{/formProducto}" th:object = "${producto}" method="post">
+		<label style="font-family:verdana;">Nombre del producto</label>
+		<br>
+		<input type="text" th:field="${producto.nombre}" placeholder="Max. 15 caracteres" style="width: 300px; height:30px"><br>
+		<span th:errors="*{nombre}" style = "font-family:verdana; color: #E81505" ></span><br>
+		<br>
+		<label style="font-family:verdana;">Descripcion del producto</label>
+		<br>
+		<input type="text" th:field="*{descripcion}" placeholder="Max. 30 caracteres" style="width: 300px; height:30px"><br>
+		<span th:errors="*{descripcion}" style = "font-family:verdana; color: #E81505"></span><br>
+		<br>
+		<label style="font-family:verdana;">Precio del producto</label>
+		<br>
+		<input type="number" th:field="*{precio}" placeholder="No precio negativo" style="width: 300px; height:30px"><br>
+		<span th:errors="*{precio}" style = "font-family:verdana; color: #E81505"></span><br>
+		<br>
+		<label style="font-family:verdana;">Fecha de vencimiento del producto</label>
+		<br>
+		<input type="text" th:field="*{vencimiento}" placeholder="Fecha formato dd/MM/aaaa" style="width: 300px; height:30px"><br>
+		<span th:errors="*{vencimiento}" style = "font-family:verdana; color: #E81505"></span><br>
+		<br>
+		<input type="submit" value="Agregar producto" style="width: 150px; height:30px">
+	</form>
+</body>
+</html>
